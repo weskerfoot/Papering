@@ -1,0 +1,85 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: e09f8222cad84f04960d28d13522fdcfcf9968e33a34bb225a7086659d352ce3
+
+name:           papering
+version:        0.2.1.0
+description:    Please see the README on GitHub at <https://github.com/weskerfoot/papering#readme>
+homepage:       https://github.com/weskerfoot/papering#readme
+bug-reports:    https://github.com/weskerfoot/papering/issues
+author:         Wesley Kerfoot
+maintainer:     wes@wesk.tech
+copyright:      2019 Wesley Kerfoot
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/papering
+
+library
+  exposed-modules:
+      Wallpapers
+    , Download
+  other-modules:
+      Paths_papering
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , directory
+    , process
+    , wreq
+    , tagsoup
+    , aeson
+    , lens
+    , lens-aeson
+
+  default-language: Haskell2010
+
+executable papering-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_papering
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -XOverloadedStrings
+  build-depends:
+      base >=4.7 && <5
+    , papering
+    , directory
+    , process
+    , wreq
+    , tagsoup
+    , aeson
+    , lens
+    , lens-aeson
+  default-language: Haskell2010
+
+test-suite papering-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_papering
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -XOverloadedStrings
+  build-depends:
+      base >=4.7 && <5
+    , papering
+    , directory
+    , process
+    , wreq
+    , tagsoup
+    , aeson
+    , lens
+    , lens-aeson
+  default-language: Haskell2010
